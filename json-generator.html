@@ -1,1 +1,200 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Data JSON Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold mb-6 text-center">Game Data JSON Generator</h1>
+        
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Add New Game</h2>
+            <form id="game-form" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="game-title">Game Title</label>
+                        <input type="text" id="game-title" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. Space Shooter" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="game-category">Game Category</label>
+                        <select id="game-category" class="w-full p-2 border border-gray-300 rounded" required>
+                            <option value="puzzle">Puzzles</option>
+                            <option value="action">Action</option>
+                            <option value="simulation">Simulation</option>
+                            <option value="casual">Casual</option>
+                            <option value="horror">Horror</option>
+                            <option value="strategy">Strategy</option>
+                            <option value="rpg">RPG</option>
+                            <option value="racing">Racing</option>
+                            <option value="adventure">Adventure</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-2" for="game-thumbnail">Thumbnail URL</label>
+                    <input type="text" id="game-thumbnail" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. https://via.placeholder.com/300x180/3c5/fff?text=Space+Shooter" required>
+                    <p class="text-sm text-gray-500 mt-1">You can use placeholder images: https://via.placeholder.com/300x180/[color-code]/fff?text=[game-name]</p>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-2" for="game-iframe">Game iframe URL</label>
+                    <input type="text" id="game-iframe" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. https://example.com/embed/game" required>
+                </div>
+                
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add Game</button>
+            </form>
+        </div>
+        
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Games List</h2>
+            <div class="bg-gray-100 p-4 rounded-md">
+                <div id="games-list" class="space-y-2 max-h-60 overflow-y-auto">
+                    <p class="text-gray-500 italic">No games added yet...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Generated JSON</h2>
+            <div class="relative">
+                <button id="copy-json" class="absolute top-2 right-2 bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-3 rounded text-sm">Copy</button>
+                <pre id="json-output" class="bg-gray-800 text-green-400 p-4 rounded-md overflow-x-auto max-h-96 whitespace-pre-wrap"></pre>
+            </div>
+        </div>
+        
+        <div class="bg-yellow-100 p-4 rounded-md mb-6">
+            <h3 class="font-semibold text-yellow-800 mb-2">Instructions</h3>
+            <ol class="list-decimal list-inside text-yellow-800 space-y-1">
+                <li>Fill in the game information and click "Add Game" button</li>
+                <li>Continue adding all your games</li>
+                <li>Copy the generated JSON code</li>
+                <li>Paste the code into the games array in your Pillar Chase website's index.html file</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        // Games data array
+        let games = [];
+        let nextId = 1;
+        
+        // DOM elements
+        const gameForm = document.getElementById('game-form');
+        const gamesList = document.getElementById('games-list');
+        const jsonOutput = document.getElementById('json-output');
+        const copyButton = document.getElementById('copy-json');
+        
+        // Update JSON output
+        function updateJsonOutput() {
+            jsonOutput.textContent = JSON.stringify(games, null, 4);
+        }
+        
+        // Update games list
+        function updateGamesList() {
+            if (games.length === 0) {
+                gamesList.innerHTML = '<p class="text-gray-500 italic">No games added yet...</p>';
+                return;
+            }
+            
+            gamesList.innerHTML = '';
+            games.forEach((game, index) => {
+                const gameItem = document.createElement('div');
+                gameItem.className = 'flex justify-between items-center bg-white p-2 rounded border border-gray-200';
+                gameItem.innerHTML = `
+                    <div>
+                        <span class="font-semibold">${game.title}</span>
+                        <span class="text-sm text-gray-500 ml-2">(${getCategoryName(game.category)})</span>
+                    </div>
+                    <div>
+                        <button class="text-red-500 hover:text-red-700" data-index="${index}">Remove</button>
+                    </div>
+                `;
+                
+                // Delete button event
+                gameItem.querySelector('button').addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    games.splice(index, 1);
+                    updateGamesList();
+                    updateJsonOutput();
+                });
+                
+                gamesList.appendChild(gameItem);
+            });
+        }
+        
+        // Get category name
+        function getCategoryName(categoryId) {
+            const categories = {
+                'puzzle': 'Puzzles',
+                'action': 'Action',
+                'simulation': 'Simulation',
+                'casual': 'Casual',
+                'horror': 'Horror',
+                'strategy': 'Strategy',
+                'rpg': 'RPG',
+                'racing': 'Racing',
+                'adventure': 'Adventure'
+            };
+            return categories[categoryId] || categoryId;
+        }
+        
+        // Form submit event
+        gameForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('game-title').value;
+            const category = document.getElementById('game-category').value;
+            const thumbnail = document.getElementById('game-thumbnail').value;
+            const iframeUrl = document.getElementById('game-iframe').value;
+            
+            // Create new game object
+            const newGame = {
+                id: nextId++,
+                title: title,
+                thumbnail: thumbnail,
+                category: category,
+                iframeUrl: iframeUrl
+            };
+            
+            // Add to array
+            games.push(newGame);
+            
+            // Update view
+            updateGamesList();
+            updateJsonOutput();
+            
+            // Reset form
+            gameForm.reset();
+            
+            // Focus back to first input
+            document.getElementById('game-title').focus();
+        });
+        
+        // Copy button event
+        copyButton.addEventListener('click', function() {
+            const textToCopy = jsonOutput.textContent;
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                copyButton.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyButton.textContent = 'Copy';
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        });
+        
+        // Initialize
+        updateJsonOutput();
+    </script>
+</body>
+</html>
