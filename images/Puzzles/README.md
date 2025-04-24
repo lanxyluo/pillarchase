@@ -1,1 +1,1 @@
-
+# Puzzles Game Thumbnails
