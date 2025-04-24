@@ -41,14 +41,57 @@
                 </div>
                 
                 <div>
-                    <label class="block text-gray-700 mb-2" for="game-thumbnail">Thumbnail URL</label>
-                    <input type="text" id="game-thumbnail" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. https://via.placeholder.com/300x180/3c5/fff?text=Space+Shooter" required>
-                    <p class="text-sm text-gray-500 mt-1">You can use placeholder images: https://via.placeholder.com/300x180/[color-code]/fff?text=[game-name]</p>
+                    <label class="block text-gray-700 mb-2" for="game-iframe">Game iframe URL</label>
+                    <input type="text" id="game-iframe" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. https://www.crazygames.com/embed/game-name" required>
                 </div>
                 
                 <div>
-                    <label class="block text-gray-700 mb-2" for="game-iframe">Game iframe URL</label>
-                    <input type="text" id="game-iframe" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. https://example.com/embed/game" required>
+                    <label class="block text-gray-700 mb-2">Thumbnail Preview</label>
+                    <div class="border border-gray-300 rounded p-4 bg-gray-50">
+                        <div class="mb-2">
+                            <p class="text-sm text-gray-500">Auto-generated thumbnail URL:</p>
+                            <input type="text" id="thumbnail-preview-url" class="w-full p-2 border border-gray-300 rounded mt-1 bg-white" readonly>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-500 mb-2">Preview:</p>
+                            <img id="thumbnail-preview-img" src="https://via.placeholder.com/300x180/cccccc/666666?text=Enter+Game+Title" class="w-full max-w-sm mx-auto rounded shadow-sm" alt="Thumbnail preview">
+                        </div>
+                        
+                        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <div class="col-span-1">
+                                <label class="block text-gray-700 text-sm mb-1" for="thumbnail-color">Background Color:</label>
+                                <select id="thumbnail-color" class="w-full p-2 border border-gray-300 rounded text-sm">
+                                    <option value="f66">Red (Action)</option>
+                                    <option value="96f">Purple (Puzzle)</option>
+                                    <option value="6c3">Green (Simulation)</option>
+                                    <option value="fc3">Yellow (Casual)</option>
+                                    <option value="333">Black (Horror)</option>
+                                    <option value="936">Brown (Strategy)</option>
+                                    <option value="639">Indigo (RPG)</option>
+                                    <option value="f93">Orange (Racing)</option>
+                                    <option value="3f6">Teal (Adventure)</option>
+                                    <option value="39f">Blue (Other)</option>
+                                </select>
+                            </div>
+                            <div class="col-span-1">
+                                <label class="block text-gray-700 text-sm mb-1" for="thumbnail-text-color">Text Color:</label>
+                                <select id="thumbnail-text-color" class="w-full p-2 border border-gray-300 rounded text-sm">
+                                    <option value="fff">White</option>
+                                    <option value="000">Black</option>
+                                    <option value="ff0">Yellow</option>
+                                    <option value="0ff">Cyan</option>
+                                </select>
+                            </div>
+                            <div class="col-span-1">
+                                <label class="block text-gray-700 text-sm mb-1" for="thumbnail-size">Size:</label>
+                                <select id="thumbnail-size" class="w-full p-2 border border-gray-300 rounded text-sm">
+                                    <option value="300x180">300x180 (Default)</option>
+                                    <option value="400x240">400x240 (Larger)</option>
+                                    <option value="200x120">200x120 (Smaller)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add Game</button>
@@ -75,10 +118,13 @@
         <div class="bg-yellow-100 p-4 rounded-md mb-6">
             <h3 class="font-semibold text-yellow-800 mb-2">Instructions</h3>
             <ol class="list-decimal list-inside text-yellow-800 space-y-1">
-                <li>Fill in the game information and click "Add Game" button</li>
+                <li>Enter the game title and iframe URL</li>
+                <li>The thumbnail URL will be automatically generated</li>
+                <li>Customize the thumbnail appearance if needed</li>
+                <li>Click "Add Game" button</li>
                 <li>Continue adding all your games</li>
                 <li>Copy the generated JSON code</li>
-                <li>Paste the code into the games array in your Pillar Chase website's index.html file</li>
+                <li>Paste the code into games.js file in your repository</li>
             </ol>
         </div>
     </div>
@@ -93,6 +139,102 @@
         const gamesList = document.getElementById('games-list');
         const jsonOutput = document.getElementById('json-output');
         const copyButton = document.getElementById('copy-json');
+        const gameTitleInput = document.getElementById('game-title');
+        const gameCategorySelect = document.getElementById('game-category');
+        const thumbnailPreviewUrl = document.getElementById('thumbnail-preview-url');
+        const thumbnailPreviewImg = document.getElementById('thumbnail-preview-img');
+        const thumbnailColorSelect = document.getElementById('thumbnail-color');
+        const thumbnailTextColorSelect = document.getElementById('thumbnail-text-color');
+        const thumbnailSizeSelect = document.getElementById('thumbnail-size');
+        
+        // Auto-select color based on category
+        gameCategorySelect.addEventListener('change', function() {
+            const category = this.value;
+            switch(category) {
+                case 'action':
+                    thumbnailColorSelect.value = 'f66';
+                    break;
+                case 'puzzle':
+                    thumbnailColorSelect.value = '96f';
+                    break;
+                case 'simulation':
+                    thumbnailColorSelect.value = '6c3';
+                    break;
+                case 'casual':
+                    thumbnailColorSelect.value = 'fc3';
+                    break;
+                case 'horror':
+                    thumbnailColorSelect.value = '333';
+                    break;
+                case 'strategy':
+                    thumbnailColorSelect.value = '936';
+                    break;
+                case 'rpg':
+                    thumbnailColorSelect.value = '639';
+                    break;
+                case 'racing':
+                    thumbnailColorSelect.value = 'f93';
+                    break;
+                case 'adventure':
+                    thumbnailColorSelect.value = '3f6';
+                    break;
+                default:
+                    thumbnailColorSelect.value = '39f';
+            }
+            updateThumbnailPreview();
+        });
+        
+        // Generate thumbnail URL
+        function generateThumbnailUrl(title, bgColor, textColor, size) {
+            // Replace spaces with plus signs and remove special characters
+            const formattedTitle = title.trim()
+                .replace(/\s+/g, '+')
+                .replace(/[^\w\s+]/g, '');
+            
+            return `https://via.placeholder.com/${size}/${bgColor}/${textColor}?text=${formattedTitle}`;
+        }
+        
+        // Update thumbnail preview
+        function updateThumbnailPreview() {
+            const title = gameTitleInput.value || 'Enter Game Title';
+            const bgColor = thumbnailColorSelect.value;
+            const textColor = thumbnailTextColorSelect.value;
+            const size = thumbnailSizeSelect.value;
+            
+            const thumbnailUrl = generateThumbnailUrl(title, bgColor, textColor, size);
+            thumbnailPreviewUrl.value = thumbnailUrl;
+            thumbnailPreviewImg.src = thumbnailUrl;
+            thumbnailPreviewImg.alt = title;
+        }
+        
+        // Update preview on input changes
+        gameTitleInput.addEventListener('input', updateThumbnailPreview);
+        thumbnailColorSelect.addEventListener('change', updateThumbnailPreview);
+        thumbnailTextColorSelect.addEventListener('change', updateThumbnailPreview);
+        thumbnailSizeSelect.addEventListener('change', updateThumbnailPreview);
+        
+        // Try to extract game name from iframe URL if title is empty
+        const gameIframeInput = document.getElementById('game-iframe');
+        gameIframeInput.addEventListener('blur', function() {
+            if (gameTitleInput.value !== '') return;
+            
+            const url = this.value;
+            try {
+                // Extract game name from URL
+                const urlParts = url.split('/');
+                const lastPart = urlParts[urlParts.length - 1];
+                if (lastPart) {
+                    // Convert hyphenated or underscored name to title case
+                    const gameName = lastPart.replace(/-|_/g, ' ')
+                        .replace(/\b\w/g, c => c.toUpperCase());
+                    
+                    gameTitleInput.value = gameName;
+                    updateThumbnailPreview();
+                }
+            } catch (e) {
+                // Ignore errors in auto-extraction
+            }
+        });
         
         // Update JSON output
         function updateJsonOutput() {
@@ -110,23 +252,42 @@
             games.forEach((game, index) => {
                 const gameItem = document.createElement('div');
                 gameItem.className = 'flex justify-between items-center bg-white p-2 rounded border border-gray-200';
-                gameItem.innerHTML = `
-                    <div>
-                        <span class="font-semibold">${game.title}</span>
-                        <span class="text-sm text-gray-500 ml-2">(${getCategoryName(game.category)})</span>
-                    </div>
-                    <div>
-                        <button class="text-red-500 hover:text-red-700" data-index="${index}">Remove</button>
-                    </div>
+                
+                // Create a small thumbnail preview
+                const thumbnailImg = document.createElement('img');
+                thumbnailImg.src = game.thumbnail;
+                thumbnailImg.alt = game.title;
+                thumbnailImg.className = 'w-12 h-7 object-cover rounded mr-2';
+                
+                const gameInfo = document.createElement('div');
+                gameInfo.className = 'flex items-center flex-1';
+                gameInfo.appendChild(thumbnailImg);
+                
+                const gameText = document.createElement('div');
+                gameText.innerHTML = `
+                    <span class="font-semibold">${game.title}</span>
+                    <span class="text-sm text-gray-500 ml-2">(${getCategoryName(game.category)})</span>
                 `;
+                gameInfo.appendChild(gameText);
+                
+                gameItem.appendChild(gameInfo);
+                
+                const removeButton = document.createElement('button');
+                removeButton.className = 'text-red-500 hover:text-red-700';
+                removeButton.textContent = 'Remove';
+                removeButton.dataset.index = index;
                 
                 // Delete button event
-                gameItem.querySelector('button').addEventListener('click', function() {
+                removeButton.addEventListener('click', function() {
                     const index = parseInt(this.dataset.index);
                     games.splice(index, 1);
                     updateGamesList();
                     updateJsonOutput();
                 });
+                
+                const buttonContainer = document.createElement('div');
+                buttonContainer.appendChild(removeButton);
+                gameItem.appendChild(buttonContainer);
                 
                 gamesList.appendChild(gameItem);
             });
@@ -152,10 +313,15 @@
         gameForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const title = document.getElementById('game-title').value;
-            const category = document.getElementById('game-category').value;
-            const thumbnail = document.getElementById('game-thumbnail').value;
-            const iframeUrl = document.getElementById('game-iframe').value;
+            const title = gameTitleInput.value;
+            const category = gameCategorySelect.value;
+            const iframeUrl = gameIframeInput.value;
+            const bgColor = thumbnailColorSelect.value;
+            const textColor = thumbnailTextColorSelect.value;
+            const size = thumbnailSizeSelect.value;
+            
+            // Generate thumbnail URL
+            const thumbnail = generateThumbnailUrl(title, bgColor, textColor, size);
             
             // Create new game object
             const newGame = {
@@ -176,8 +342,11 @@
             // Reset form
             gameForm.reset();
             
+            // Reset preview
+            updateThumbnailPreview();
+            
             // Focus back to first input
-            document.getElementById('game-title').focus();
+            gameTitleInput.focus();
         });
         
         // Copy button event
@@ -194,6 +363,7 @@
         });
         
         // Initialize
+        updateThumbnailPreview();
         updateJsonOutput();
     </script>
 </body>
