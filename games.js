@@ -1,11 +1,11 @@
 // Game data - Pillar Chase
 const games = [
     {
-        id: 1,
-        title: "Space Shooter",
-        thumbnail: "https://via.placeholder.com/300x180/3c5/fff?text=Space+Shooter",
-        category: "action",
-        iframeUrl: "https://html5.gamemonetize.com/mwmz41a58bn4avsyi9t7q6r8va4fu7d4/"
+        "id": 1,
+        "title": "Castle Craft",
+        "thumbnail": "images/Adventure/castle-craft.jpg",
+        "category": "adventure",
+        "iframeUrl": "https://www.crazygames.com/embed/castle-craft"
     },
     {
         id: 2,
