@@ -7,7 +7,6 @@ const games = [
         "category": "adventure",
         "iframeUrl": "https://www.crazygames.com/embed/castle-craft"
     },
-   [
     {
         "id": 2,
         "title": "Firestone Idle RPG",
