@@ -41,5 +41,19 @@ const games = [
         "thumbnail": "images/Casual/supermarket-simulator-cashier-game.jpg",
         "category": "casual",
         "iframeUrl": "https://www.crazygames.com/embed/supermarket-simulator-cashier-game"
+    },
+    {
+        "id": 7,
+        "title": "Ragdoll Archers",
+        "thumbnail": "images/Casual/ragdoll-archers.jpg",
+        "category": "casual",
+        "iframeUrl": "https://www.crazygames.com/embed/ragdoll-archers"
+    },
+    {
+        "id": 8,
+        "title": "Count Masters Stickman Games",
+        "thumbnail": "images/Casual/count-masters-stickman-games.jpg",
+        "category": "casual",
+        "iframeUrl": "https://www.crazygames.com/embed/count-masters-stickman-games"
     }
 ];
