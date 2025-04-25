@@ -21,7 +21,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-gray-700 mb-2" for="game-title">Game Title</label>
-                        <input type="text" id="game-title" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. Space Shooter" required>
+                        <input type="text" id="game-title" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g. Castle Craft" required>
                     </div>
                     
                     <div>
@@ -46,51 +46,11 @@
                 </div>
                 
                 <div>
-                    <label class="block text-gray-700 mb-2">Thumbnail Preview</label>
+                    <label class="block text-gray-700 mb-2">Image Path Preview</label>
                     <div class="border border-gray-300 rounded p-4 bg-gray-50">
-                        <div class="mb-2">
-                            <p class="text-sm text-gray-500">Auto-generated thumbnail URL:</p>
-                            <input type="text" id="thumbnail-preview-url" class="w-full p-2 border border-gray-300 rounded mt-1 bg-white" readonly>
-                        </div>
-                        <div class="mt-4">
-                            <p class="text-sm text-gray-500 mb-2">Preview:</p>
-                            <img id="thumbnail-preview-img" src="https://via.placeholder.com/300x180/cccccc/666666?text=Enter+Game+Title" class="w-full max-w-sm mx-auto rounded shadow-sm" alt="Thumbnail preview">
-                        </div>
-                        
-                        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-2">
-                            <div class="col-span-1">
-                                <label class="block text-gray-700 text-sm mb-1" for="thumbnail-color">Background Color:</label>
-                                <select id="thumbnail-color" class="w-full p-2 border border-gray-300 rounded text-sm">
-                                    <option value="f66">Red (Action)</option>
-                                    <option value="96f">Purple (Puzzle)</option>
-                                    <option value="6c3">Green (Simulation)</option>
-                                    <option value="fc3">Yellow (Casual)</option>
-                                    <option value="333">Black (Horror)</option>
-                                    <option value="936">Brown (Strategy)</option>
-                                    <option value="639">Indigo (RPG)</option>
-                                    <option value="f93">Orange (Racing)</option>
-                                    <option value="3f6">Teal (Adventure)</option>
-                                    <option value="39f">Blue (Other)</option>
-                                </select>
-                            </div>
-                            <div class="col-span-1">
-                                <label class="block text-gray-700 text-sm mb-1" for="thumbnail-text-color">Text Color:</label>
-                                <select id="thumbnail-text-color" class="w-full p-2 border border-gray-300 rounded text-sm">
-                                    <option value="fff">White</option>
-                                    <option value="000">Black</option>
-                                    <option value="ff0">Yellow</option>
-                                    <option value="0ff">Cyan</option>
-                                </select>
-                            </div>
-                            <div class="col-span-1">
-                                <label class="block text-gray-700 text-sm mb-1" for="thumbnail-size">Size:</label>
-                                <select id="thumbnail-size" class="w-full p-2 border border-gray-300 rounded text-sm">
-                                    <option value="300x180">300x180 (Default)</option>
-                                    <option value="400x240">400x240 (Larger)</option>
-                                    <option value="200x120">200x120 (Smaller)</option>
-                                </select>
-                            </div>
-                        </div>
+                        <p class="text-sm text-gray-500">Generated image path:</p>
+                        <input type="text" id="image-path-preview" class="w-full p-2 border border-gray-300 rounded mt-1 bg-white" readonly>
+                        <p class="text-sm text-gray-500 mt-4">Remember to upload a screenshot with this exact filename to your repository.</p>
                     </div>
                 </div>
                 
@@ -119,13 +79,23 @@
             <h3 class="font-semibold text-yellow-800 mb-2">Instructions</h3>
             <ol class="list-decimal list-inside text-yellow-800 space-y-1">
                 <li>Enter the game title and iframe URL</li>
-                <li>The thumbnail URL will be automatically generated</li>
-                <li>Customize the thumbnail appearance if needed</li>
+                <li>The image path will be automatically generated</li>
+                <li>Make sure to upload game screenshots with exactly the same filenames to your repository structure</li>
                 <li>Click "Add Game" button</li>
                 <li>Continue adding all your games</li>
                 <li>Copy the generated JSON code</li>
                 <li>Paste the code into games.js file in your repository</li>
             </ol>
+        </div>
+        
+        <div class="bg-blue-100 p-4 rounded-md mb-6">
+            <h3 class="font-semibold text-blue-800 mb-2">Image Path Structure</h3>
+            <p class="text-blue-800">The image paths follow this structure: <code>images/CategoryName/game-title.jpg</code></p>
+            <p class="text-blue-800 mt-2">For example:</p>
+            <ul class="list-disc list-inside text-blue-800 space-y-1 mt-1">
+                <li>Game: "Castle Craft", Category: "Adventure" → <code>images/Adventure/castle-craft.jpg</code></li>
+                <li>Game: "Space Shooter", Category: "Action" → <code>images/Action/space-shooter.jpg</code></li>
+            </ul>
         </div>
     </div>
     
@@ -141,80 +111,68 @@
         const copyButton = document.getElementById('copy-json');
         const gameTitleInput = document.getElementById('game-title');
         const gameCategorySelect = document.getElementById('game-category');
-        const thumbnailPreviewUrl = document.getElementById('thumbnail-preview-url');
-        const thumbnailPreviewImg = document.getElementById('thumbnail-preview-img');
-        const thumbnailColorSelect = document.getElementById('thumbnail-color');
-        const thumbnailTextColorSelect = document.getElementById('thumbnail-text-color');
-        const thumbnailSizeSelect = document.getElementById('thumbnail-size');
+        const gameIframeInput = document.getElementById('game-iframe');
+        const imagePathPreview = document.getElementById('image-path-preview');
         
-        // Auto-select color based on category
-        gameCategorySelect.addEventListener('change', function() {
-            const category = this.value;
+        // Generate image path based on game title and category
+        function generateImagePath(title, category) {
+            // Convert title to lowercase, replace spaces with hyphens, remove special characters
+            const formattedTitle = title.trim()
+                .toLowerCase()
+                .replace(/\s+/g, '-')
+                .replace(/[^\w\-]/g, '');
+            
+            // Get category name with first letter capitalized
+            let categoryName = '';
             switch(category) {
-                case 'action':
-                    thumbnailColorSelect.value = 'f66';
-                    break;
                 case 'puzzle':
-                    thumbnailColorSelect.value = '96f';
+                    categoryName = 'Puzzles';
+                    break;
+                case 'action':
+                    categoryName = 'Action';
                     break;
                 case 'simulation':
-                    thumbnailColorSelect.value = '6c3';
+                    categoryName = 'Simulation';
                     break;
                 case 'casual':
-                    thumbnailColorSelect.value = 'fc3';
+                    categoryName = 'Casual';
                     break;
                 case 'horror':
-                    thumbnailColorSelect.value = '333';
+                    categoryName = 'Horror';
                     break;
                 case 'strategy':
-                    thumbnailColorSelect.value = '936';
+                    categoryName = 'Strategy';
                     break;
                 case 'rpg':
-                    thumbnailColorSelect.value = '639';
+                    categoryName = 'RPG';
                     break;
                 case 'racing':
-                    thumbnailColorSelect.value = 'f93';
+                    categoryName = 'Racing';
                     break;
                 case 'adventure':
-                    thumbnailColorSelect.value = '3f6';
+                    categoryName = 'Adventure';
                     break;
                 default:
-                    thumbnailColorSelect.value = '39f';
+                    categoryName = 'Other';
             }
-            updateThumbnailPreview();
-        });
-        
-        // Generate thumbnail URL
-        function generateThumbnailUrl(title, bgColor, textColor, size) {
-            // Replace spaces with plus signs and remove special characters
-            const formattedTitle = title.trim()
-                .replace(/\s+/g, '+')
-                .replace(/[^\w\s+]/g, '');
             
-            return `https://via.placeholder.com/${size}/${bgColor}/${textColor}?text=${formattedTitle}`;
+            return `images/${categoryName}/${formattedTitle}.jpg`;
         }
         
-        // Update thumbnail preview
-        function updateThumbnailPreview() {
-            const title = gameTitleInput.value || 'Enter Game Title';
-            const bgColor = thumbnailColorSelect.value;
-            const textColor = thumbnailTextColorSelect.value;
-            const size = thumbnailSizeSelect.value;
+        // Update image path preview
+        function updateImagePathPreview() {
+            const title = gameTitleInput.value || 'game-title';
+            const category = gameCategorySelect.value;
             
-            const thumbnailUrl = generateThumbnailUrl(title, bgColor, textColor, size);
-            thumbnailPreviewUrl.value = thumbnailUrl;
-            thumbnailPreviewImg.src = thumbnailUrl;
-            thumbnailPreviewImg.alt = title;
+            const imagePath = generateImagePath(title, category);
+            imagePathPreview.value = imagePath;
         }
         
         // Update preview on input changes
-        gameTitleInput.addEventListener('input', updateThumbnailPreview);
-        thumbnailColorSelect.addEventListener('change', updateThumbnailPreview);
-        thumbnailTextColorSelect.addEventListener('change', updateThumbnailPreview);
-        thumbnailSizeSelect.addEventListener('change', updateThumbnailPreview);
+        gameTitleInput.addEventListener('input', updateImagePathPreview);
+        gameCategorySelect.addEventListener('change', updateImagePathPreview);
         
         // Try to extract game name from iframe URL if title is empty
-        const gameIframeInput = document.getElementById('game-iframe');
         gameIframeInput.addEventListener('blur', function() {
             if (gameTitleInput.value !== '') return;
             
@@ -229,7 +187,7 @@
                         .replace(/\b\w/g, c => c.toUpperCase());
                     
                     gameTitleInput.value = gameName;
-                    updateThumbnailPreview();
+                    updateImagePathPreview();
                 }
             } catch (e) {
                 // Ignore errors in auto-extraction
@@ -253,22 +211,14 @@
                 const gameItem = document.createElement('div');
                 gameItem.className = 'flex justify-between items-center bg-white p-2 rounded border border-gray-200';
                 
-                // Create a small thumbnail preview
-                const thumbnailImg = document.createElement('img');
-                thumbnailImg.src = game.thumbnail;
-                thumbnailImg.alt = game.title;
-                thumbnailImg.className = 'w-12 h-7 object-cover rounded mr-2';
-                
                 const gameInfo = document.createElement('div');
-                gameInfo.className = 'flex items-center flex-1';
-                gameInfo.appendChild(thumbnailImg);
-                
-                const gameText = document.createElement('div');
-                gameText.innerHTML = `
-                    <span class="font-semibold">${game.title}</span>
-                    <span class="text-sm text-gray-500 ml-2">(${getCategoryName(game.category)})</span>
+                gameInfo.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="font-semibold">${game.title}</span>
+                        <span class="text-sm text-gray-500 ml-2">(${getCategoryName(game.category)})</span>
+                    </div>
+                    <div class="text-xs text-gray-500">${game.thumbnail}</div>
                 `;
-                gameInfo.appendChild(gameText);
                 
                 gameItem.appendChild(gameInfo);
                 
@@ -316,12 +266,9 @@
             const title = gameTitleInput.value;
             const category = gameCategorySelect.value;
             const iframeUrl = gameIframeInput.value;
-            const bgColor = thumbnailColorSelect.value;
-            const textColor = thumbnailTextColorSelect.value;
-            const size = thumbnailSizeSelect.value;
             
-            // Generate thumbnail URL
-            const thumbnail = generateThumbnailUrl(title, bgColor, textColor, size);
+            // Generate image path
+            const thumbnail = generateImagePath(title, category);
             
             // Create new game object
             const newGame = {
@@ -343,7 +290,7 @@
             gameForm.reset();
             
             // Reset preview
-            updateThumbnailPreview();
+            updateImagePathPreview();
             
             // Focus back to first input
             gameTitleInput.focus();
@@ -363,7 +310,7 @@
         });
         
         // Initialize
-        updateThumbnailPreview();
+        updateImagePathPreview();
         updateJsonOutput();
     </script>
 </body>
