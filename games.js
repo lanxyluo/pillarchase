@@ -27,5 +27,19 @@ const games = [
         "thumbnail": "images/Puzzles/doors-castle.jpg",
         "category": "adventure",
         "iframeUrl": "https://www.crazygames.com/embed/doors-castle"
+    },
+    {
+        "id": 5,
+        "title": "Stone Grass Mowing Simulator",
+        "thumbnail": "images/Casual/stone-grass-mowing-simulator.jpg",
+        "category": "casual",
+        "iframeUrl": "https://www.crazygames.com/embed/stone-grass-mowing-simulator"
+    },
+    {
+        "id": 6,
+        "title": "Supermarket Simulator Cashier Game",
+        "thumbnail": "images/Casual/supermarket-simulator-cashier-game.jpg",
+        "category": "casual",
+        "iframeUrl": "https://www.crazygames.com/embed/supermarket-simulator-cashier-game"
     }
 ];
