@@ -10,7 +10,7 @@ const games = [
     {
         "id": 2,
         "title": "Firestone Idle RPG",
-        "thumbnail": "https://via.placeholder.com/300x180/3f6/ff0?text=Firestone+Idle+RPG",
+        "thumbnail": "images/Adventure/firestone-idle-rpg.jpg",
         "category": "adventure",
         "iframeUrl": "https://www.crazygames.com/embed/firestone-idle-rpg"
     },
