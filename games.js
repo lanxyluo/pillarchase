@@ -83,5 +83,33 @@ const games = [
         "thumbnail": "images/Horror/horror-tale-kidnapper.jpg",
         "category": "horror",
         "iframeUrl": "https://www.crazygames.com/embed/horror-tale-kidnapper"
+    },
+     {
+        "id": 13,
+        "title": "Sky Riders Buk",
+        "thumbnail": "images/Racing/sky-riders-buk.jpg",
+        "category": "racing",
+        "iframeUrl": "https://www.crazygames.com/embed/sky-riders-buk"
+    },
+    {
+        "id": 14,
+        "title": "Racing Limits",
+        "thumbnail": "images/Racing/racing-limits.jpg",
+        "category": "racing",
+        "iframeUrl": "https://www.crazygames.com/embed/racing-limits"
+    },
+    {
+        "id": 15,
+        "title": "Sandbox City   Cars Zombies Ragdolls",
+        "thumbnail": "images/Racing/sandbox-city-cars-zombies-ragdolls.jpg",
+        "category": "racing",
+        "iframeUrl": "https://www.crazygames.com/embed/sandbox-city---cars-zombies-ragdolls"
+    },
+    {
+        "id": 16,
+        "title": "Night City Racing",
+        "thumbnail": "images/Racing/night-city-racing.jpg",
+        "category": "racing",
+        "iframeUrl": "https://www.crazygames.com/embed/night-city-racing"
     }
 ];
