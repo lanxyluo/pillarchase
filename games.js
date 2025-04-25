@@ -55,5 +55,33 @@ const games = [
         "thumbnail": "images/Casual/count-masters-stickman-games.jpg",
         "category": "casual",
         "iframeUrl": "https://www.crazygames.com/embed/count-masters-stickman-games"
+    },
+    {
+        "id": 9,
+        "title": "911 Prey",
+        "thumbnail": "images/Horror/911-prey.jpg",
+        "category": "horror",
+        "iframeUrl": "https://www.crazygames.com/embed/911-prey"
+    },
+    {
+        "id": 10,
+        "title": "Room Escape Strange Case",
+        "thumbnail": "images/Horror/room-escape-strange-case.jpg",
+        "category": "horror",
+        "iframeUrl": "https://www.crazygames.com/embed/room-escape-strange-case"
+    },
+    {
+        "id": 11,
+        "title": "Fnaf Shooter",
+        "thumbnail": "images/Horror/fnaf-shooter.jpg",
+        "category": "horror",
+        "iframeUrl": "https://www.crazygames.com/embed/fnaf-shooter"
+    },
+    {
+        "id": 12,
+        "title": "Horror Tale Kidnapper",
+        "thumbnail": "images/Horror/horror-tale-kidnapper.jpg",
+        "category": "horror",
+        "iframeUrl": "https://www.crazygames.com/embed/horror-tale-kidnapper"
     }
 ];
