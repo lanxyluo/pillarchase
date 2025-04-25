@@ -16,15 +16,15 @@ const games = [
     },
     {
         "id": 3,
-        "title": "Dead Land: Survival",
-        "thumbnail": "https://via.placeholder.com/300x180/f66/0ff?text=Dead+Land+Survival",
+        "title": "Dead Land Survival",
+        "thumbnail": "images/Puzzles/dead-land-survival.jpg",
         "category": "adventure",
         "iframeUrl": "https://www.crazygames.com/embed/dead-land-survival"
     },
-    {
+   {
         "id": 4,
         "title": "Doors Castle",
-        "thumbnail": "https://via.placeholder.com/300x180/3f6/000?text=Doors+Castle",
+        "thumbnail": "images/Puzzles/doors-castle.jpg",
         "category": "adventure",
         "iframeUrl": "https://www.crazygames.com/embed/doors-castle"
     }
