@@ -111,7 +111,7 @@ const games = [
         "thumbnail": "images/Racing/night-city-racing.jpg",
         "category": "racing",
         "iframeUrl": "https://www.crazygames.com/embed/night-city-racing"
-    }，
+    },
       {
         "id": 17,
         "title": "Squid Game Online",
