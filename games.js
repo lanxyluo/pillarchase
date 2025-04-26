@@ -111,5 +111,33 @@ const games = [
         "thumbnail": "images/Racing/night-city-racing.jpg",
         "category": "racing",
         "iframeUrl": "https://www.crazygames.com/embed/night-city-racing"
+    }，
+      {
+        "id": 17,
+        "title": "Squid Game Online",
+        "thumbnail": "images/Action/squid-game-online.jpg",
+        "category": "action",
+        "iframeUrl": "https://www.crazygames.com/embed/squid-game-online"
+    },
+    {
+        "id": 18,
+        "title": "Defender Idle 2",
+        "thumbnail": "images/Action/defender-idle-2.jpg",
+        "category": "action",
+        "iframeUrl": "https://www.crazygames.com/embed/defender-idle-2"
+    },
+    {
+        "id": 19,
+        "title": "Immortal Dark Slayer",
+        "thumbnail": "images/Action/immortal-dark-slayer.jpg",
+        "category": "action",
+        "iframeUrl": "https://www.crazygames.com/embed/immortal-dark-slayer"
+    },
+    {
+        "id": 20,
+        "title": "Bank Heist",
+        "thumbnail": "images/Action/bank-heist.jpg",
+        "category": "action",
+        "iframeUrl": "https://www.crazygames.com/embed/bank-heist"
     }
 ];
