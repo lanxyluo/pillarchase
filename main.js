@@ -189,4 +189,3 @@
             // Close modal event
             document.getElementById('close-modal').addEventListener('click', closeGame);
         });
-        
