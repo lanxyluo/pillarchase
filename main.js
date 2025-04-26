@@ -111,19 +111,23 @@
             });
         }
         
-        // Function: Open game
-        function openGame(game) {
-            const modal = document.getElementById('game-modal');
-            const title = document.getElementById('modal-game-title');
-            const iframe = document.getElementById('game-iframe');
-            
-            title.textContent = game.title;
-            iframe.src = game.iframeUrl;
-            modal.style.display = 'block';
-            
-            // Prevent page scrolling
-            document.body.style.overflow = 'hidden';
-        }
+       // In main.js, modify the openGame function
+function openGame(game) {
+    const modal = document.getElementById('game-modal');
+    const title = document.getElementById('modal-game-title');
+    const description = document.getElementById('game-description');
+    const howToPlay = document.getElementById('game-howtoplay');
+    const iframe = document.getElementById('game-iframe');
+    
+    title.textContent = game.title;
+    description.textContent = game.description || "No game description available";
+    howToPlay.textContent = game.howToPlay || "No gameplay instructions available";
+    iframe.src = game.iframeUrl;
+    modal.style.display = 'block';
+    
+    // Prevent page scrolling
+    document.body.style.overflow = 'hidden';
+}
         
         // Function: Close game modal
         function closeGame() {
