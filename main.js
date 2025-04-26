@@ -1,5 +1,4 @@
- <script>
-        // Game categories
+// Game categories
         const categories = [
             { id: 'all', name: 'All Games' },
             { id: 'puzzle', name: 'Puzzles' },
@@ -190,4 +189,4 @@
             // Close modal event
             document.getElementById('close-modal').addEventListener('click', closeGame);
         });
-    </script>
+        
