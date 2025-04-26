@@ -260,5 +260,50 @@ const games = [
         "iframeUrl": "https://cloud.onlinegames.io/games/2025/construct/208/kings-io",
         "description": "The road to royalty is that way! ⬆️ If you're ready to rule your own kingdom, play Kings io. This is an exciting online strategy game where you start...",
         "howToPlay": "Movement: Use your mouse to guide your troops around the map. Attack / Build / Upgrade: Click with the left mouse button to choose your action."
+    },
+    {
+        "id": 30,
+        "title": "Battle Arena",
+        "thumbnail": "images/Adventure/battle-arena.jpg",
+        "category": "adventure",
+        "iframeUrl": "https://www.crazygames.com/embed/battle-arena",
+        "description": "Battle Arena is a thrilling RPG adventure battle game that seamlessly blends heart-pounding action with strategic gameplay.",
+        "howToPlay": "In a world overrun by demons, you must choose a region at a time to combat your opponent. Battle Arena fights start off in Serenity Valley, where you can assess your enemy's squad in just a tap."
+    },
+      {
+        "id": 31,
+        "title": "Pirates Of The Caribbean Tow",
+        "thumbnail": "images/Adventure/pirates-of-the-caribbean-tow.jpg",
+        "category": "adventure",
+        "iframeUrl": "https://www.crazygames.com/embed/pirates-of-the-caribbean-tow",
+        "description": "Pirates of the Caribbean: Tides of War is a strategic adventure set in the legendary world of pirates. Join Jack Sparrow, Will Turner, and Captain Barbossa on a high-stakes quest for treasure.",
+        "howToPlay": "Use the Left Mouse Button to interact with objects and navigate the game. Use the Mouse Wheel or Scroll to zoom in and out."
+    },
+    {
+        "id": 32,
+        "title": "Hedgies",
+        "thumbnail": "images/Adventure/hedgies.jpg",
+        "category": "adventure",
+        "iframeUrl": "https://www.crazygames.com/embed/hedgies",
+        "description": "Hedgies is a charming farming game where a hardworking hedgehog transforms an abandoned plot into a thriving homestead. Grow crops, craft goods, and master skills like cooking and fishing.",
+        "howToPlay": "Use the Left Mouse Button to interact."
+    },
+    {
+        "id": 33,
+        "title": "Elvenrage",
+        "thumbnail": "images/Adventure/elvenrage.jpg",
+        "category": "adventure",
+        "iframeUrl": "https://www.crazygames.com/embed/elvenrage",
+        "description": "Elvenrage is a strategy-packed defense game where you play as an elven archer battling waves of orcs in a dangerous fantasy world.",
+        "howToPlay": "Use the left mouse button, WASD/arrow keys to play."
+    },
+    {
+        "id": 34,
+        "title": "Idle Saga",
+        "thumbnail": "images/Adventure/idle-saga.jpg",
+        "category": "adventure",
+        "iframeUrl": "https://www.crazygames.com/embed/idle-saga",
+        "description": "Idle Saga is a fantasy adventure where swords and magic shape your journey. Gather powerful equipment, harness divine and demonic transformations, and conquer every realm in your path.",
+        "howToPlay": "Use the left mouse button to interact with the UIs."
     }
 ];
