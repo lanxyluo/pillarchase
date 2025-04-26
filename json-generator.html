@@ -46,6 +46,24 @@
                 </div>
                 
                 <div>
+                    <label class="block text-gray-700 mb-2" for="game-description">Game Description</label>
+                    <div class="relative">
+                        <textarea id="game-description" rows="3" class="w-full p-2 border border-gray-300 rounded" placeholder="Paste or type game description..."></textarea>
+                        <button type="button" id="optimize-description" class="absolute top-2 right-2 bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-2 rounded text-xs">Optimize Text</button>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Paste description from original website. Click "Optimize Text" to clean up formatting.</p>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 mb-2" for="game-howtoplay">How To Play</label>
+                    <div class="relative">
+                        <textarea id="game-howtoplay" rows="3" class="w-full p-2 border border-gray-300 rounded" placeholder="Paste or type game instructions..."></textarea>
+                        <button type="button" id="optimize-howtoplay" class="absolute top-2 right-2 bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-2 rounded text-xs">Optimize Text</button>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Paste gameplay instructions from original website. Click "Optimize Text" to clean up formatting.</p>
+                </div>
+                
+                <div>
                     <label class="block text-gray-700 mb-2" for="start-id">Start ID From</label>
                     <input type="number" id="start-id" class="w-full p-2 border border-gray-300 rounded" value="1" min="1">
                     <p class="text-sm text-gray-500 mt-1">Set the starting ID number for your games</p>
@@ -86,6 +104,8 @@
             <ol class="list-decimal list-inside text-yellow-800 space-y-1">
                 <li>Set the starting ID number (if you're adding to an existing game list)</li>
                 <li>Enter the game title and iframe URL</li>
+                <li>Copy and paste description and how-to-play from the original website</li>
+                <li>Click the "Optimize Text" buttons to clean up the formatting</li>
                 <li>The image path will be automatically generated</li>
                 <li>Make sure to upload game screenshots with exactly the same filenames to your repository structure</li>
                 <li>Click "Add Game" button</li>
@@ -118,8 +138,51 @@
         const gameTitleInput = document.getElementById('game-title');
         const gameCategorySelect = document.getElementById('game-category');
         const gameIframeInput = document.getElementById('game-iframe');
+        const gameDescriptionInput = document.getElementById('game-description');
+        const gameHowToPlayInput = document.getElementById('game-howtoplay');
+        const optimizeDescriptionBtn = document.getElementById('optimize-description');
+        const optimizeHowToPlayBtn = document.getElementById('optimize-howtoplay');
         const startIdInput = document.getElementById('start-id');
         const imagePathPreview = document.getElementById('image-path-preview');
+        
+        // Text optimization function
+        function optimizeText(text) {
+            if (!text) return '';
+            
+            // Remove excessive whitespace and line breaks
+            let optimized = text.trim()
+                .replace(/\s+/g, ' ')
+                .replace(/\n+/g, ' ')
+                .replace(/\t+/g, ' ');
+            
+            // Simplify if too long (more than 150 characters)
+            if (optimized.length > 150) {
+                // Try to find a sentence boundary near 150 characters
+                const sentenceEnd = optimized.indexOf('. ', 120);
+                if (sentenceEnd > 0 && sentenceEnd < 200) {
+                    optimized = optimized.substring(0, sentenceEnd + 1);
+                } else {
+                    // Otherwise just truncate and add ellipsis
+                    optimized = optimized.substring(0, 150).trim() + '...';
+                }
+            }
+            
+            // Ensure it ends with proper punctuation
+            if (!optimized.endsWith('.') && !optimized.endsWith('!') && !optimized.endsWith('?')) {
+                optimized += '.';
+            }
+            
+            return optimized;
+        }
+        
+        // Optimize text button event handlers
+        optimizeDescriptionBtn.addEventListener('click', function() {
+            gameDescriptionInput.value = optimizeText(gameDescriptionInput.value);
+        });
+        
+        optimizeHowToPlayBtn.addEventListener('click', function() {
+            gameHowToPlayInput.value = optimizeText(gameHowToPlayInput.value);
+        });
         
         // Get next ID from input or existing games
         function getNextId() {
@@ -237,6 +300,7 @@
                         <span class="text-sm text-gray-500 ml-2">(ID: ${game.id}, ${getCategoryName(game.category)})</span>
                     </div>
                     <div class="text-xs text-gray-500">${game.thumbnail}</div>
+                    <div class="text-xs text-gray-500 truncate" title="${game.description}">Description: ${game.description.substring(0, 50)}${game.description.length > 50 ? '...' : ''}</div>
                 `;
                 
                 gameItem.appendChild(gameInfo);
@@ -286,6 +350,14 @@
             const category = gameCategorySelect.value;
             const iframeUrl = gameIframeInput.value;
             
+            // Get and optimize description and how to play
+            let description = gameDescriptionInput.value;
+            let howToPlay = gameHowToPlayInput.value;
+            
+            // Auto-optimize if not already optimized
+            description = optimizeText(description) || `A ${getCategoryName(category).toLowerCase()} game where you can have fun and challenge yourself.`;
+            howToPlay = optimizeText(howToPlay) || `Use mouse to interact with the game elements and keyboard for movement.`;
+            
             // Generate image path
             const thumbnail = generateImagePath(title, category);
             
@@ -295,7 +367,9 @@
                 title: title,
                 thumbnail: thumbnail,
                 category: category,
-                iframeUrl: iframeUrl
+                iframeUrl: iframeUrl,
+                description: description,
+                howToPlay: howToPlay
             };
             
             // Add to array
