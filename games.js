@@ -59,97 +59,125 @@ const games = [
         "title": "Ragdoll Archers",
         "thumbnail": "images/Casual/ragdoll-archers.jpg",
         "category": "casual",
-        "iframeUrl": "https://www.crazygames.com/embed/ragdoll-archers"
+        "iframeUrl": "https://www.crazygames.com/embed/ragdoll-archers",
+        "description": "Ragdoll Archers is an archery game featuring bow and arrow-equipped stickmen with ragdoll physics. Fire arrows at a range of opponents while earning points to upgrade your abilities and ammunition.",
+        "howToPlay": "Line up your shots carefully, and fire! Starting with the basic arrows and baseline stats, you will be faced with various enemies."
     },
     {
         "id": 8,
         "title": "Count Masters Stickman Games",
         "thumbnail": "images/Casual/count-masters-stickman-games.jpg",
         "category": "casual",
-        "iframeUrl": "https://www.crazygames.com/embed/count-masters-stickman-games"
+        "iframeUrl": "https://www.crazygames.com/embed/count-masters-stickman-games",
+        "description": "Count Masters: Stickman Games is a fast-paced running game where you gather a growing army of stickmen to clash against rival crowds.",
+        "howToPlay": "Tips and Tricks Don’t just rush forward—choose gates that give you the best numbers, even if they’re not directly in your path."
     },
     {
         "id": 9,
         "title": "911 Prey",
         "thumbnail": "images/Horror/911-prey.jpg",
         "category": "horror",
-        "iframeUrl": "https://www.crazygames.com/embed/911-prey"
+        "iframeUrl": "https://www.crazygames.com/embed/911-prey",
+        "description": "911: Prey is a scary horror game with puzzles. In this game, you are a kidnapped teenager that needs to escape from a cannibal maniac who brought you to his house.",
+        "howToPlay": "Features Multiple endings - it all depends on your actions Branching detective story Interesting puzzles Fascinating story and investigation Horror el..."
     },
     {
         "id": 10,
         "title": "Room Escape Strange Case",
         "thumbnail": "images/Horror/room-escape-strange-case.jpg",
         "category": "horror",
-        "iframeUrl": "https://www.crazygames.com/embed/room-escape-strange-case"
+        "iframeUrl": "https://www.crazygames.com/embed/room-escape-strange-case",
+        "description": "Room Escape: Strange Case is a mystery puzzle game where you, the true detective, delve into the enigma of the elusive \"Alchemist.\" Unravel the chilli...",
+        "howToPlay": "Controls Use the left mouse button to interact with objects."
     },
     {
         "id": 11,
         "title": "Fnaf Shooter",
         "thumbnail": "images/Horror/fnaf-shooter.jpg",
         "category": "horror",
-        "iframeUrl": "https://www.crazygames.com/embed/fnaf-shooter"
+        "iframeUrl": "https://www.crazygames.com/embed/fnaf-shooter",
+        "description": "FNaF Shooter is a first-person shooter game where you survive and save the world from the invasion of animatronics!",
+        "howToPlay": "Controls Mouse = look around WASD = movement W + Shift = run Space = jump Left mouse button = shoot Right mouse button (hold) = aim Mouse wheel = next..."
     },
     {
         "id": 12,
         "title": "Horror Tale Kidnapper",
         "thumbnail": "images/Horror/horror-tale-kidnapper.jpg",
         "category": "horror",
-        "iframeUrl": "https://www.crazygames.com/embed/horror-tale-kidnapper"
+        "iframeUrl": "https://www.crazygames.com/embed/horror-tale-kidnapper",
+        "description": "Horror Tale Kidnapper is a frightening first-person horror adventure game. Solve the disturbing mystery of the missing children at Lakewitch.",
+        "howToPlay": "In this episode, you meet your friend Harry, who plans to keep you and the other kids from your neighborhood safe from the kidnapper while you're waiting for your parents to return."
     },
-     {
+    {
         "id": 13,
         "title": "Sky Riders Buk",
         "thumbnail": "images/Racing/sky-riders-buk.jpg",
         "category": "racing",
-        "iframeUrl": "https://www.crazygames.com/embed/sky-riders-buk"
+        "iframeUrl": "https://www.crazygames.com/embed/sky-riders-buk",
+        "description": "Sky Riders is a high-speed casual vehicle driving game. Put your driving skills to the test as you complete several challenging tracks.",
+        "howToPlay": "Features Drive bikes and cars through the sky 30 challenging tracks to complete Realistic physics make the game tricky See what awesome stunts you can..."
     },
     {
         "id": 14,
         "title": "Racing Limits",
         "thumbnail": "images/Racing/racing-limits.jpg",
         "category": "racing",
-        "iframeUrl": "https://www.crazygames.com/embed/racing-limits"
+        "iframeUrl": "https://www.crazygames.com/embed/racing-limits",
+        "description": "Racing Limits is a racing game that lets you push your skills to the max. Race and overtake vehicles in city and highway traffic with four thrilling g...",
+        "howToPlay": "Controls Up arrow key to accelerate Down arrow key to decelerate Left and right arrow keys to steer C to change the camera view F to use nitro E to ho..."
     },
     {
         "id": 15,
         "title": "Sandbox City   Cars Zombies Ragdolls",
         "thumbnail": "images/Racing/sandbox-city-cars-zombies-ragdolls.jpg",
         "category": "racing",
-        "iframeUrl": "https://www.crazygames.com/embed/sandbox-city---cars-zombies-ragdolls"
+        "iframeUrl": "https://www.crazygames.com/embed/sandbox-city---cars-zombies-ragdolls",
+        "description": "Sandbox City - Cars, Zombies, Ragdolls! is a zombie game where you can explore freely and drive around the city, but, be careful of the zombie's infec...",
+        "howToPlay": "Controls WASD or arrow keys = move Left-click = attack. Hold to shoot Hold shift = run Space = jump when on foot, handbrake when in the car E = enter..."
     },
     {
         "id": 16,
         "title": "Night City Racing",
         "thumbnail": "images/Racing/night-city-racing.jpg",
         "category": "racing",
-        "iframeUrl": "https://www.crazygames.com/embed/night-city-racing"
+        "iframeUrl": "https://www.crazygames.com/embed/night-city-racing",
+        "description": "Night City Racing is a car-driving game with fantastic races, epic stunts, and awesome supercars. Gear up for heart-pounding races and wild challenges...",
+        "howToPlay": "Race against the competition Get in the driver’s seat and tackle some of the world’s best sports cars head-on. As you progress, there are 16 racing challenges to complete that increase in difficulty."
     },
-      {
+    {
         "id": 17,
         "title": "Squid Game Online",
         "thumbnail": "images/Action/squid-game-online.jpg",
         "category": "action",
-        "iframeUrl": "https://www.crazygames.com/embed/squid-game-online"
+        "iframeUrl": "https://www.crazygames.com/embed/squid-game-online",
+        "description": "Squid Game Online is a free multiplayer survival game. Compete in 7 minigames with 30 players based on the viral Netflix show Squid Game.",
+        "howToPlay": "To enter a game, choose your region and nickname, then click join. You’ll be added to a room and be moments away from playing in this unforgiving chal..."
     },
     {
         "id": 18,
         "title": "Defender Idle 2",
         "thumbnail": "images/Action/defender-idle-2.jpg",
         "category": "action",
-        "iframeUrl": "https://www.crazygames.com/embed/defender-idle-2"
+        "iframeUrl": "https://www.crazygames.com/embed/defender-idle-2",
+        "description": "Defender Idle 2 is an endless idle defense game where you unlock slots, strategically place turrets, and invest in a wide range of upgrades to safeguard your base.",
+        "howToPlay": "Controls Use the left mouse button to interact with the in-game UI Q = previous wave W = retry wave E = next wave R = sell mode A = research S = passi..."
     },
     {
         "id": 19,
         "title": "Immortal Dark Slayer",
         "thumbnail": "images/Action/immortal-dark-slayer.jpg",
         "category": "action",
-        "iframeUrl": "https://www.crazygames.com/embed/immortal-dark-slayer"
+        "iframeUrl": "https://www.crazygames.com/embed/immortal-dark-slayer",
+        "description": "Immortal: Dark Slayer is a top-down soulslike action RPG game where you take on the role of a Fallen Knight on a quest to cleanse the realm of demons, undead, and chaos.",
+        "howToPlay": "Controls WASD or arrow keys to move Left mouse button to interact with in-game UI."
     },
     {
         "id": 20,
         "title": "Bank Heist",
         "thumbnail": "images/Action/bank-heist.jpg",
         "category": "action",
-        "iframeUrl": "https://www.crazygames.com/embed/bank-heist"
+        "iframeUrl": "https://www.crazygames.com/embed/bank-heist",
+        "description": "Bank Heist is an action-packed game filled with thrilling adventures where you rob banks, stores, and more! Strategize, fight, and escape with the loot in this high-stakes crime escapade.",
+        "howToPlay": "Controls WASD = move Space = jump C = crouch Shift = run F = interact with entities LMB = fire with weapon RMB = aim Tab = exit."
     }
 ];
