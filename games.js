@@ -224,5 +224,41 @@ const games = [
         "iframeUrl": "https://www.crazygames.com/embed/farm-merge-valley",
         "description": "Farm Merge Valley is a puzzle business farming game where you merge various animals and objects to upgrade them. Grow crops and add animals to your farm while expanding to exciting new lands.",
         "howToPlay": "Merge to grow your farm Build the perfect farm life for your friendly neighbors and animals. Start by merging crops to reach new types of things to grow."
+    },
+    {
+        "id": 26,
+        "title": "Kingdom Battle 3d",
+        "thumbnail": "images/Strategy/kingdom-battle-3d.jpg",
+        "category": "strategy",
+        "iframeUrl": "https://cloud.onlinegames.io/games/2025/unity2/kingdom-battle-3d",
+        "description": "If you're into free games that mix brainpower strategy with epic battle scenes, Kingdom Battle 3D might be your next obsession.",
+        "howToPlay": "You’ll start with Campaign Mode. This is where you fight level by level, unlocking new unit types and getting the hang of the game."
+    },
+    {
+        "id": 27,
+        "title": "Fast Food Rush",
+        "thumbnail": "images/Strategy/fast-food-rush.jpg",
+        "category": "strategy",
+        "iframeUrl": "https://cloud.onlinegames.io/games/2025/unity/fast-food-rush",
+        "description": "You're at Burger King, sinking your teeth into a juicy cheeseburger and finishing it off in about 15 minutes flat. But just this once, before you head out, pause and take a quick look around.",
+        "howToPlay": "WASD / Arrow Keys / Drag Mouse: Move your character around Mouse Scroll: Zoom in or out On Mobile Tap and Drag: Move your character Start with the Bur..."
+    },
+    {
+        "id": 28,
+        "title": "Mahjong",
+        "thumbnail": "images/Strategy/mahjong.jpg",
+        "category": "strategy",
+        "iframeUrl": "https://cloud.onlinegames.io/games/2025/unity/mahjong",
+        "description": "hen there are the Wind tiles, representing the four cardinal directions—East, South, West, and North. These tiles carry deep meaning in feng shui, the Chinese practice of harmonizing space and energy.",
+        "howToPlay": "Can Mahjong always be solved? Not every Mahjong puzzle has a guaranteed solution. However, many Mahjong Online puzzles are specifically created to be..."
+    },
+    {
+        "id": 29,
+        "title": "Kings Io",
+        "thumbnail": "images/Strategy/kings-io.jpg",
+        "category": "strategy",
+        "iframeUrl": "https://cloud.onlinegames.io/games/2025/construct/208/kings-io",
+        "description": "The road to royalty is that way! ⬆️ If you're ready to rule your own kingdom, play Kings io. This is an exciting online strategy game where you start...",
+        "howToPlay": "Movement: Use your mouse to guide your troops around the map. Attack / Build / Upgrade: Click with the left mouse button to choose your action."
     }
 ];
