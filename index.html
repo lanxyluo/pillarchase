@@ -126,9 +126,19 @@
             </div>
         </div>
     </main>
-   <!-- Game modal -->
+  <!-- Game modal -->
 <div id="game-modal" class="game-modal">
-    <!-- Modal content -->
+    <div class="game-content">
+        <div class="flex justify-between items-center mb-4">
+            <h2 id="modal-game-title" class="text-xl font-bold">Game Title</h2>
+            <button id="close-modal" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+                Close
+            </button>
+        </div>
+        <div class="iframe-container">
+            <iframe id="game-iframe" src="" allowfullscreen></iframe>
+        </div>
+    </div>
 </div>
 <!-- Script references -->
 <script src="games.js"></script>
