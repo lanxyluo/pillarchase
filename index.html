@@ -126,7 +126,7 @@
             </div>
         </div>
     </main>
-  <!-- Game modal -->
+ <!-- Game modal -->
 <div id="game-modal" class="game-modal">
     <div class="game-content">
         <div class="flex justify-between items-center mb-4">
@@ -135,6 +135,19 @@
                 Close
             </button>
         </div>
+        
+        <!-- New: Game information section -->
+        <div class="mb-4 bg-gray-800 p-3 rounded-md">
+            <div class="mb-2">
+                <h3 class="text-lg font-semibold text-yellow-400">Game Description</h3>
+                <p id="game-description" class="text-gray-200">Game description will be displayed here</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-green-400">How To Play</h3>
+                <p id="game-howtoplay" class="text-gray-200">Game instructions will be displayed here</p>
+            </div>
+        </div>
+        
         <div class="iframe-container">
             <iframe id="game-iframe" src="" allowfullscreen></iframe>
         </div>
