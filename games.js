@@ -305,5 +305,41 @@ const games = [
         "iframeUrl": "https://www.crazygames.com/embed/idle-saga",
         "description": "Idle Saga is a fantasy adventure where swords and magic shape your journey. Gather powerful equipment, harness divine and demonic transformations, and conquer every realm in your path.",
         "howToPlay": "Use the left mouse button to interact with the UIs."
+    },
+    {
+        "id": 35,
+        "title": "Italian Brainrot Clicker Usp",
+        "thumbnail": "images/Strategy/italian-brainrot-clicker-usp.jpg",
+        "category": "strategy",
+        "iframeUrl": "https://www.crazygames.com/embed/italian-brainrot-clicker-usp",
+        "description": "Italian Brainrot Clicker is a chaotic meme clicker incremental game where you tap your way through the viral Italian Brainrot universe, unlocking all...",
+        "howToPlay": "The aim of Italian Brainrot Clicker is to click as much as possible to unlock upgrades and rewards along the way. The more you click, the more you earn, the more you can upgrade."
+    },
+    {
+        "id": 36,
+        "title": "Crusher Block Jwd",
+        "thumbnail": "images/Casual/crusher-block-jwd.jpg",
+        "category": "casual",
+        "iframeUrl": "https://www.crazygames.com/embed/crusher-block-jwd",
+        "description": "Crusher Block is an idle game where you smash blocks, earn money, and upgrade your tools to create the most powerful crushing machine! Can you build t...",
+        "howToPlay": "Use the left mouse button to interact with objects and UI elements Hold the mouse over the pickaxe and move the cursor."
+    },
+    {
+        "id": 37,
+        "title": "Drift Hunters",
+        "thumbnail": "images/Racing/drift-hunters.jpg",
+        "category": "racing",
+        "iframeUrl": "https://www.crazygames.com/embed/drift-hunters",
+        "description": "Drift Hunters is a free-to-play car 3D game that lets you experience the art of drifting with an impressive range of tuned-up cars and dynamic tracks.",
+        "howToPlay": "ou start Drift Hunters by choosing your car and type of ride. You can upgrade the performance, including the brakes, weight, gearbox, turbo, and engine, with superior parts."
+    },
+    {
+        "id": 38,
+        "title": "Daily Kitchen Escape",
+        "thumbnail": "images/Puzzles/daily-kitchen-escape.jpg",
+        "category": "puzzle",
+        "iframeUrl": "https://www.crazygames.com/embed/daily-kitchen-escape",
+        "description": "Daily Kitchen Escape is a puzzle-packed escape game where each day reveals a new room filled with hidden clues and brain-teasing challenges.",
+        "howToPlay": "Use the Left Mouse Button to click all items in the room."
     }
 ];
