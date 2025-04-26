@@ -179,5 +179,50 @@ const games = [
         "iframeUrl": "https://www.crazygames.com/embed/bank-heist",
         "description": "Bank Heist is an action-packed game filled with thrilling adventures where you rob banks, stores, and more! Strategize, fight, and escape with the loot in this high-stakes crime escapade.",
         "howToPlay": "Controls WASD = move Space = jump C = crouch Shift = run F = interact with entities LMB = fire with weapon RMB = aim Tab = exit."
+    },
+    {
+        "id": 21,
+        "title": "Mahjongg Solitaire",
+        "thumbnail": "images/Puzzles/mahjongg-solitaire.jpg",
+        "category": "puzzle",
+        "iframeUrl": "https://www.crazygames.com/embed/mahjongg-solitaire",
+        "description": "Mahjongg Solitaire is an online mahjong puzzle board game featuring traditional rules and modern visuals. There are no shuffles, and the game is timed...",
+        "howToPlay": "Spot the patterns Mahjong is a tricky puzzle game. There are so many tiles, many of which look the same but feature slight differences."
+    },
+    {
+        "id": 22,
+        "title": "Tower Swap",
+        "thumbnail": "images/Puzzles/tower-swap.jpg",
+        "category": "puzzle",
+        "iframeUrl": "https://www.crazygames.com/embed/tower-swap",
+        "description": "Tower Swap is a clever puzzle game combining match-3 mechanics with addictive tower defense gameplay. Stop the dragons from reaching your castle by bu...",
+        "howToPlay": "Build your defenses Match 3 pieces of the same resource to upgrade them to a weapon or defense piece. When you have 3 of the same weapon or wall besid..."
+    },
+    {
+        "id": 23,
+        "title": "Mergest Kingdom",
+        "thumbnail": "images/Puzzles/mergest-kingdom.jpg",
+        "category": "puzzle",
+        "iframeUrl": "https://www.crazygames.com/embed/mergest-kingdom",
+        "description": "Mergest Kingdom is a merge puzzle and match-3 game where you build your own kingdom by combining resources in groups of three.",
+        "howToPlay": "Mine and harvest resources Mergest Kingdom features hundreds of objects that can be combined in groups of 3 to create new items."
+    },
+    {
+        "id": 24,
+        "title": "Hidden Objects",
+        "thumbnail": "images/Puzzles/hidden-objects.jpg",
+        "category": "puzzle",
+        "iframeUrl": "https://www.crazygames.com/embed/hidden-objects",
+        "description": "Hidden Objects is a puzzle game where the thrill of discovery meets exquisite aesthetics. Delve into beautifully crafted interiors meticulously designed to conceal an array of diverse items.",
+        "howToPlay": "Use the left mouse button to find the object Use the scroll wheel or +/- or place two fingers on the touchpad and pinch in/stretch out to zoom in/out."
+    },
+    {
+        "id": 25,
+        "title": "Farm Merge Valley",
+        "thumbnail": "images/Puzzles/farm-merge-valley.jpg",
+        "category": "puzzle",
+        "iframeUrl": "https://www.crazygames.com/embed/farm-merge-valley",
+        "description": "Farm Merge Valley is a puzzle business farming game where you merge various animals and objects to upgrade them. Grow crops and add animals to your farm while expanding to exciting new lands.",
+        "howToPlay": "Merge to grow your farm Build the perfect farm life for your friendly neighbors and animals. Start by merging crops to reach new types of things to grow."
     }
 ];
